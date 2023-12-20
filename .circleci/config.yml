@@ -17,7 +17,7 @@ jobs:
       - run:
           name: "Say hello"
           command: |
-            "echo Cloning timestamp. Hello, World!"
+            echo "Cloning timestamp. Hello, World!"
             ll
 
 # Orchestrate jobs using workflows
