@@ -17,8 +17,7 @@ jobs:
       - run:
           name: "Say hello"
           command: |
-            echo "Cloning timestamp. Hello, World!"
-            ls -latr
+            echo "Cloning timestamp repo. Hello, World!"
             mkdir -p workspace
             cp app.py workspace/app.py
       - persist_to_workspace:
@@ -39,9 +38,9 @@ jobs:
       - run:
           name: Use Persisted File
           command: |
-            echo "Accessing the persisted file from the workspace"
-            ls -latr
+            echo "Accessing the persisted app.py from the workspace and printing it out"
             ls -latr /tmp/workspace
+            cat /tmp/workspace/app.py
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
