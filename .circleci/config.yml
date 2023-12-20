@@ -19,6 +19,8 @@ jobs:
           command: |
             echo "Cloning timestamp. Hello, World!"
             ls -latr
+            mkdir -p workspace
+            cp app.py workspace/app.py
       - persist_to_workspace:
           root: workspace
           paths:
