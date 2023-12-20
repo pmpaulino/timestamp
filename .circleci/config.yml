@@ -19,6 +19,27 @@ jobs:
           command: |
             echo "Cloning timestamp. Hello, World!"
             ls -latr
+      - persist_to_workspace:
+          root: $CIRCLE_WORKING_DIRECTORY
+          paths:
+            - "app.py"
+
+  say-hello-again:
+    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/configuration-reference/#executor-job
+    docker:
+      - image: cimg/base:stable
+    # Add steps to the job
+    # See: https://circleci.com/docs/configuration-reference/#steps
+    steps:
+      - attach_workspace:
+          at: $CIRCLE_WORKING_DIRECTORY
+      - run:
+          name: Use Persisted File
+          command: |
+            echo "Accessing the persisted file from the workspace"
+            cp $CIRCLE_WORKING_DIRECTORY/app.py .
+            ls -latr
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
