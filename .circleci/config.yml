@@ -20,7 +20,7 @@ jobs:
             echo "Cloning timestamp. Hello, World!"
             ls -latr
       - persist_to_workspace:
-          root: $CIRCLE_WORKING_DIRECTORY
+          root: workspace
           paths:
             - "app.py"
 
@@ -33,13 +33,13 @@ jobs:
     # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
       - attach_workspace:
-          at: /attached_workspace
+          at: /tmp/workspace
       - run:
           name: Use Persisted File
           command: |
             echo "Accessing the persisted file from the workspace"
             ls -latr
-            ls -latr /attached_workspace
+            ls -latr /tmp/workspace
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
