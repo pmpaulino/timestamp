@@ -33,13 +33,13 @@ jobs:
     # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
       - attach_workspace:
-          at: $CIRCLE_WORKING_DIRECTORY
+          at: /attached_workspace
       - run:
           name: Use Persisted File
           command: |
             echo "Accessing the persisted file from the workspace"
-            cp $CIRCLE_WORKING_DIRECTORY/app.py .
             ls -latr
+            ls -latr /attached_workspace
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
