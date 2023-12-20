@@ -18,7 +18,7 @@ jobs:
           name: "Say hello"
           command: |
             echo "Cloning timestamp. Hello, World!"
-            ll
+            ls -latr
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
