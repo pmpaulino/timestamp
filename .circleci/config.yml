@@ -31,7 +31,7 @@ jobs:
           command: | # just some sample code to show that the file is persisted and can be used
             echo "Accessing the persisted app.py from the workspace and printing it out"
             ls -latr workspace
-            cat workspace/app.py
+            cat "workspace/deep/inside/folder/app.py"
 workflows:
   say-hello-workflow:
     jobs:
