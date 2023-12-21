@@ -10,14 +10,15 @@ jobs:
           name: "Say hello"
           command: | # Based on the taskfile looks like the repo is cloned into /tmp folder so I'm just simulating that here.
             echo "Cloning timestamp repo. Hello, World!"
-            mkdir -p workspace
-            cp app.py workspace/app.py
-            touch workspace/test.csv
-            echo "This is my test csv" > workspace/test.csv
+            mkdir -p workspace/deep/inside/folder
+            cp app.py workspace/deep/inside/folder/app.py
+            touch workspace/deep/inside/folder/test.csv
+            echo "This is my test csv" > workspace/deep/inside/folder/test.csv
       - persist_to_workspace:
           root: . # relative to workspace
           paths:
-            - "workspace/" # relative to root path
+            - "workspace/deep/inside/folder/test.csv" # relative to root path
+            - "workspace/deep/inside/folder/app.py" # relative to root path
 
   say-hello-again:
     docker:
